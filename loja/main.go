@@ -1,6 +1,7 @@
 package main
 
 import (
+	"estudos-go/loja/dominio"
 	"html/template"
 	"net/http"
 )
@@ -13,5 +14,12 @@ func main() {
 }
 
 func index(w http.ResponseWriter, r *http.Request) {
-	temp.ExecuteTemplate(w, "Index", nil)
+	produtos := []dominio.Produto{
+		{Nome: "Camiseta", Descricao: "Azul, bem bonita", Preco: 39, Quantidade: 5},
+		{Nome: "Tenis", Descricao: "Confortável", Preco: 89, Quantidade: 3},
+		{Nome: "Fone", Descricao: "Muito bom", Preco: 59, Quantidade: 2},
+		{Nome: "Produto novo", Descricao: "Muito legal", Preco: 1.99, Quantidade: 1},
+	}
+
+	temp.ExecuteTemplate(w, "Index", produtos)
 }
