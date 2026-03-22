@@ -1,0 +1,17 @@
+# Dependências
+vendor/
+
+# Binários (executáveis gerados)
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+loja
+
+# IDEs
+.vscode/
+.idea/
+
+# Outros
+*.log
