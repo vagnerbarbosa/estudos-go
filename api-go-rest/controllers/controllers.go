@@ -1,11 +1,13 @@
 package controllers
 
 import (
+	"api-go-rest/database"
 	"api-go-rest/models"
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"strconv"
+
+	"gorm.io/gorm"
 )
 
 func Home(w http.ResponseWriter, r *http.Request) {
@@ -13,16 +15,26 @@ func Home(w http.ResponseWriter, r *http.Request) {
 }
 
 func TodasPersonalidades(w http.ResponseWriter, r *http.Request) {
-	json.NewEncoder(w).Encode(models.Personalidades)
+	var personalidades []models.Personalidade
+	result := database.DB.Find(&personalidades)
+	if result.Error != nil {
+		http.Error(w, result.Error.Error(), http.StatusInternalServerError)
+		return
+	}
+	json.NewEncoder(w).Encode(personalidades)
 }
 
 func RetornaUmaPersonalidade(w http.ResponseWriter, r *http.Request) {
 	id := r.PathValue("id")
-
-	for _, personalidade := range models.Personalidades {
-		if strconv.Itoa(personalidade.Id) == id {
-			json.NewEncoder(w).Encode(personalidade)
-			return // Importante: parar a execução após encontrar
+	var personalidade models.Personalidade
+	result := database.DB.First(&personalidade, id)
+	if result.Error != nil {
+		if result.Error == gorm.ErrRecordNotFound {
+			http.Error(w, "Personalidade not found", http.StatusNotFound)
+		} else {
+			http.Error(w, result.Error.Error(), http.StatusInternalServerError)
 		}
+		return
 	}
+	json.NewEncoder(w).Encode(personalidade)
 }

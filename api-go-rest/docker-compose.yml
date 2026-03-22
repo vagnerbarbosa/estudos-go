@@ -3,23 +3,18 @@ version: '3.8'
 
 services:
   db:
-    # 1. Ele vai buildar a imagem usando o seu Dockerfile local
     build: .
     
-    # 2. Nome que aparecerá na sua lista de containers do Docker Desktop/Terminal
     container_name: meu-postgres-api-go-rest
     
-    # 3. Resolve o problema da porta: (Sua Máquina:Container)
     ports:
       - "5433:5432"
     
-    # 4. Configurações que você já tinha no Dockerfile (podem ser reforçadas aqui)
     environment:
       - POSTGRES_PASSWORD=1234
       - POSTGRES_DB=api_go_rest
       - POSTGRES_USER=postgres
     
-    # 5. Opcional: Garante que os dados não sumam se você apagar o container
     volumes:
       - pgdata:/var/lib/postgresql/data
 
