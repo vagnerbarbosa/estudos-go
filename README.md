@@ -6,12 +6,12 @@ Este repositório é destinado aos códigos dos exercicios criados durante a tri
 
 - **Formação Alura**: Estou percorrendo os diversos tópicos, desde os fundamentos da linguagem até técnicas mais avançadas de desenvolvimento.
 - **Material**: Videoaulas, exercícios práticos e projetos que estou consolidando meu aprendizado.
-- **Meu Progresso**: 3 de 6 passos finalizados (44h de formação planejadas)
+- **Meu Progresso**: 4 de 6 passos finalizados (44h de formação planejadas)
 
 ## Composição do Repositório
 
-- **Go**: 65.5%
-- **HTML**: 33.5%
+- **Go**: 69.6%
+- **HTML**: 29.3%
 - **Dockerfile**: 1%
 
 A maior parte do código está escrita em Go, com uma parte também em HTML para construir as interfaces dos projetos.
