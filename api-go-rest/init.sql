@@ -19,6 +19,3 @@ INSERT INTO personalidades(nome, historia) VALUES
 ('Victor Jurema', 'Ponto de referência para quem transita entre os bairros e busca serviços locais.'),
 ('Tenente Sabino', 'Uma das ruas mais antigas e conhecidas, batizada em honra a heróis militares da região.'),
 ('João de Souza Maciel', 'Rua movimentada que reflete o dinamismo econômico do sertão paraibano.');
-
-# docker build -t meu-postgres-api-go-rest .
-# docker run -d --name pg-api-go-rest -p 5433:5432 meu-postgres-api-go-rest
