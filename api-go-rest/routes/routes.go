@@ -2,6 +2,7 @@ package routes
 
 import (
 	"api-go-rest/controllers"
+	"api-go-rest/middleware"
 	"fmt"
 	"log"
 	"net/http"
@@ -16,12 +17,14 @@ func HandleRequest() {
 	// Note que agora incluímos o método (GET) no início da string.
 	r.HandleFunc("GET /", controllers.Home)
 	r.HandleFunc("GET /api/personalidades", controllers.TodasPersonalidades)
-
 	r.HandleFunc("GET /api/personalidades/{id}", controllers.RetornaUmaPersonalidade)
 	r.HandleFunc("POST /api/personalidades", controllers.CriaUmaPersonalidade)
 	r.HandleFunc("PUT /api/personalidades/{id}", controllers.AtualizaUmaPersonalidade)
 	r.HandleFunc("DELETE /api/personalidades/{id}", controllers.DeletaUmaPersonalidade)
 
 	fmt.Println("Iniciando o servidor Rest com Go na porta :8080")
-	log.Fatal(http.ListenAndServe(":8080", r))
+
+	handlerComMiddleware := middleware.ContentTypeMiddleware(r)
+
+	log.Fatal(http.ListenAndServe(":8080", handlerComMiddleware))
 }
