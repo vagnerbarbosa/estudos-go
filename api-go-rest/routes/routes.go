@@ -17,8 +17,10 @@ func HandleRequest() {
 	r.HandleFunc("GET /", controllers.Home)
 	r.HandleFunc("GET /api/personalidades", controllers.TodasPersonalidades)
 
-	// Para a rota com ID que vimos anteriormente, ficaria assim:
 	r.HandleFunc("GET /api/personalidades/{id}", controllers.RetornaUmaPersonalidade)
+	r.HandleFunc("POST /api/personalidades", controllers.CriaUmaPersonalidade)
+	r.HandleFunc("PUT /api/personalidades/{id}", controllers.AtualizaUmaPersonalidade)
+	r.HandleFunc("DELETE /api/personalidades/{id}", controllers.DeletaUmaPersonalidade)
 
 	fmt.Println("Iniciando o servidor Rest com Go na porta :8080")
 	log.Fatal(http.ListenAndServe(":8080", r))

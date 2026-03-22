@@ -38,3 +38,51 @@ func RetornaUmaPersonalidade(w http.ResponseWriter, r *http.Request) {
 	}
 	json.NewEncoder(w).Encode(personalidade)
 }
+
+func CriaUmaPersonalidade(w http.ResponseWriter, r *http.Request) {
+	var personalidade models.Personalidade
+	err := json.NewDecoder(r.Body).Decode(&personalidade)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+	result := database.DB.Create(&personalidade)
+	if result.Error != nil {
+		http.Error(w, result.Error.Error(), http.StatusInternalServerError)
+		return
+	}
+	json.NewEncoder(w).Encode(personalidade)
+}
+
+func AtualizaUmaPersonalidade(w http.ResponseWriter, r *http.Request) {
+	id := r.PathValue("id")
+	var personalidade models.Personalidade
+	err := json.NewDecoder(r.Body).Decode(&personalidade)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+	result := database.DB.Model(&models.Personalidade{}).Where("id = ?", id).Updates(personalidade)
+	if result.Error != nil {
+		http.Error(w, result.Error.Error(), http.StatusInternalServerError)
+		return
+	} else if result.RowsAffected == 0 {
+		http.Error(w, "Personalidade not found", http.StatusNotFound)
+		return
+	}
+	json.NewEncoder(w).Encode(personalidade)
+}
+
+func DeletaUmaPersonalidade(w http.ResponseWriter, r *http.Request) {
+	id := r.PathValue("id")
+	result := database.DB.Delete(&models.Personalidade{}, id)
+	if result.Error != nil {
+		http.Error(w, result.Error.Error(), http.StatusInternalServerError)
+		return
+	}
+	if result.RowsAffected == 0 {
+		http.Error(w, "Personalidade not found", http.StatusNotFound)
+		return
+	}
+	w.WriteHeader(http.StatusNoContent)
+}
