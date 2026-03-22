@@ -1,5 +1,5 @@
 # Dependências
-vendor/
+loja/vendor/
 
 # Binários (executáveis gerados)
 *.exe
