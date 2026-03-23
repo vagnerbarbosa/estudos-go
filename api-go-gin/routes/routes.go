@@ -12,6 +12,7 @@ func HandlerRequests() {
 
 	r.GET("/alunos", controllers.ExibeTodosAlunos)
 	r.GET("/:nome", controllers.Saudacao)
+	r.POST("/alunos", controllers.CriaNovoAluno)
 
 	if err := r.Run(); err != nil {
 		log.Fatalf("failed to run server: %v", err)

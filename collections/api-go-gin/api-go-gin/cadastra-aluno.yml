@@ -1,0 +1,23 @@
+info:
+  name: cadastra-aluno
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{baseURL}}/alunos"
+  body:
+    type: json
+    data: |-
+      {
+        "nome": "Maria",
+        "cpf": "123434441234",
+        "rg": "6534643563456"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
