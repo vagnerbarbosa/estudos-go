@@ -1,11 +1,11 @@
 info:
-  name: delete-por-id
+  name: busca-por-cpf
   type: http
-  seq: 4
+  seq: 6
 
 http:
-  method: DELETE
-  url: "{{baseURL}}/alunos/99999"
+  method: GET
+  url: "{{baseURL}}/alunos/cpf/123434441234"
   auth: inherit
 
 settings:

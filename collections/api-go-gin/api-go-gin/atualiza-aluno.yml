@@ -10,7 +10,7 @@ http:
     type: json
     data: |-
       {
-        "nome": "João Marsh",
+        "nome": "João Marsh jr",
         "cpf": "123434441234",
         "rg": "6534643563456"
       }

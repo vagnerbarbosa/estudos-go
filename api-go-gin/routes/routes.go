@@ -16,6 +16,7 @@ func HandlerRequests() {
 	r.POST("/alunos", controllers.CriaNovoAluno)
 	r.DELETE("/alunos/:id", controllers.DeletaAluno)
 	r.PATCH("/alunos/:id", controllers.EditaAluno)
+	r.GET("/alunos/cpf/:CPF", controllers.BuscaAlunoPorCPF)
 
 	if err := r.Run(); err != nil {
 		log.Fatalf("failed to run server: %v", err)
