@@ -31,3 +31,14 @@ func CriaNovoAluno(c *gin.Context) {
 	database.DB.Create(&aluno)
 	c.JSON(http.StatusOK, aluno)
 }
+
+func ExibeAlunoPorID(c *gin.Context) {
+	id := c.Param("id")
+	var aluno models.Aluno
+	database.DB.First(&aluno, id)
+	if aluno.ID == 0 {
+		c.JSON(http.StatusNotFound, gin.H{"error": "Aluno não encontrado"})
+		return
+	}
+	c.JSON(http.StatusOK, aluno)
+}
