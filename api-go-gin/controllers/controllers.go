@@ -42,3 +42,31 @@ func ExibeAlunoPorID(c *gin.Context) {
 	}
 	c.JSON(http.StatusOK, aluno)
 }
+
+func DeletaAluno(c *gin.Context) {
+	id := c.Param("id")
+	var aluno models.Aluno
+	database.DB.First(&aluno, id)
+	if aluno.ID == 0 {
+		c.JSON(http.StatusNotFound, gin.H{"error": "Aluno não encontrado"})
+		return
+	}
+	database.DB.Delete(&aluno)
+	c.JSON(http.StatusOK, gin.H{"message": "Aluno deletado com sucesso"})
+}
+
+func EditaAluno(c *gin.Context) {
+	id := c.Param("id")
+	var aluno models.Aluno
+	database.DB.First(&aluno, id)
+	if aluno.ID == 0 {
+		c.JSON(http.StatusNotFound, gin.H{"error": "Aluno não encontrado"})
+		return
+	}
+	if err := c.ShouldBindJSON(&aluno); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+	database.DB.Save(&aluno)
+	c.JSON(http.StatusOK, aluno)
+}
