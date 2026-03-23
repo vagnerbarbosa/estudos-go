@@ -1,0 +1,22 @@
+## docker-compose up -d --build
+version: '3.8'
+
+services:
+  db:
+    build: .
+    
+    container_name: meu-postgres-api-go-gin
+    
+    ports:
+      - "5433:5432"
+    
+    environment:
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=api_go_gin
+      - POSTGRES_USER=postgres
+    
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

@@ -11,6 +11,7 @@ func HandlerRequests() {
 	r := gin.Default()
 
 	r.GET("/alunos", controllers.ExibeTodosAlunos)
+	r.GET("/:nome", controllers.Saudacao)
 
 	if err := r.Run(); err != nil {
 		log.Fatalf("failed to run server: %v", err)
