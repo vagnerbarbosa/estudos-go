@@ -1,0 +1,44 @@
+info:
+  name: Cria um novo aluno
+  type: http
+  seq: 2
+
+http:
+  method: POST
+  url: "{{baseUrl}}/alunos"
+  body:
+    type: json
+    data: |-
+      {
+        "nome": "",
+        "cpf": "",
+        "rg": ""
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
+
+examples:
+  - name: 201 Response
+    description: Aluno criado
+    request:
+      url: "{{baseUrl}}/alunos"
+      method: POST
+      body:
+        type: json
+        data: |-
+          {
+            "nome": "",
+            "cpf": "",
+            "rg": ""
+          }
+    response:
+      status: 201
+      statusText: Created
+      body:
+        type: text
+        data: ""
