@@ -11,8 +11,9 @@ Este repositório é destinado aos códigos dos exercícios criados durante a tr
 ## Composição do Repositório
 
 - **Go**: 76.2%
-- **HTML**: 22.6%
-- **Dockerfile**: 1.2%
+- **CSS**: 2.1%
+- **HTML**: 20.9%
+- **Dockerfile**: 0.9%
 
 A maior parte do código está escrita em Go, com uma parte também em HTML para construir as interfaces dos projetos.
 
