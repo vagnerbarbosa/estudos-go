@@ -8,8 +8,8 @@ import (
 type Aluno struct {
 	gorm.Model
 	Nome string `json:"nome" validate:"required,min=3"`
-	CPF  string `json:"cpf" validate:"required,len=9,numeric"`
-	RG   string `json:"rg" validate:"required,len=11,numeric"`
+	CPF  string `json:"cpf" validate:"required,len=11,numeric"`
+	RG   string `json:"rg" validate:"required,len=9,numeric"`
 }
 
 func ValidateAluno(aluno *Aluno) error {

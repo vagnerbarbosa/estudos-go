@@ -60,20 +60,25 @@ func DeletaAluno(c *gin.Context) {
 
 func EditaAluno(c *gin.Context) {
 	var aluno models.Aluno
-	id := c.Params.ByName("id")
+	id := c.Param("id")
+
 	database.DB.First(&aluno, id)
+	if aluno.ID == 0 {
+		c.JSON(http.StatusNotFound, gin.H{"Not found": "Aluno não encontrado"})
+		return
+	}
 
 	if err := c.ShouldBindJSON(&aluno); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{
-			"error": err.Error()})
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
+
 	if err := models.ValidateAluno(&aluno); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{
-			"error": err.Error()})
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	database.DB.Model(&aluno).UpdateColumns(aluno)
+
+	database.DB.Model(&aluno).Where("id = ?", id).Updates(aluno)
 	c.JSON(http.StatusOK, aluno)
 }
 
