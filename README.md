@@ -4,23 +4,23 @@ Este repositório é destinado aos códigos dos exercícios criados durante a tr
 
 ## Minha Jornada no Curso
 
-- **Formação Alura**: Estou percorrendo os diversos tópicos, desde os fundamentos da linguagem até técnicas mais avançadas de desenvolvimento.
-- **Material**: Videoaulas, exercícios práticos e projetos nos quais estou consolidando meu aprendizado.
-- **Meu Progresso**: 5 de 6 passos finalizados (44h de formação planejadas)
+- **Formação Alura**: Percorri os diversos tópicos, desde os fundamentos da linguagem até técnicas mais avançadas de desenvolvimento.
+- **Material**: Videoaulas, exercícios práticos e projetos nos quais consolidei meu aprendizado.
+- **Meu Progresso**: 6 de 6 passos finalizados (44h de formação planejadas)
 
 ## Composição do Repositório
 
-- **Go**: 73.3%
-- **HTML**: 25.4%
-- **Dockerfile**: 1.3%
+- **Go**: 76.2%
+- **HTML**: 22.6%
+- **Dockerfile**: 1.2%
 
 A maior parte do código está escrita em Go, com uma parte também em HTML para construir as interfaces dos projetos.
 
 ## Meus Passos na Formação
 
-1. **Fundamentos da linguagem Go** ✅ - Já concluí os cursos base
-2. **Aplicações Web e API REST com Go** ✅ - Já concluí os cursos Aplicações Web e API REST com Go
-3. **Validações e testes com Go** 🚀 - Em andamento
+1. **Fundamentos da linguagem Go** ✅ - Concluído!
+2. **Aplicações Web e API REST com Go** ✅ - Concluído!
+3. **Validações e testes com Go** ✅ - Concluído!
 
 ## Instrutores
 
