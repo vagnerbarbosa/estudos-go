@@ -1,5 +1,5 @@
 info:
-  name: Cria um novo aluno
+  name: Cria novo aluno
   type: http
   seq: 2
 
@@ -10,9 +10,9 @@ http:
     type: json
     data: |-
       {
-        "nome": "",
-        "cpf": "",
-        "rg": ""
+        "nome": "Vagner Barbosa",
+        "cpf": "12345678901",
+        "rg": "1234567"
       }
   auth: inherit
 
@@ -24,7 +24,7 @@ settings:
 
 examples:
   - name: 201 Response
-    description: Aluno criado
+    description: Criado
     request:
       url: "{{baseUrl}}/alunos"
       method: POST
@@ -32,9 +32,9 @@ examples:
         type: json
         data: |-
           {
-            "nome": "",
-            "cpf": "",
-            "rg": ""
+            "nome": "Vagner Barbosa",
+            "cpf": "12345678901",
+            "rg": "1234567"
           }
     response:
       status: 201

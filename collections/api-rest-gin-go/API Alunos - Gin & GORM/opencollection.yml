@@ -1,7 +1,7 @@
 opencollection: 1.0.0
 
 info:
-  name: API de Alunos (Gin)
+  name: API Alunos - Gin & GORM
 bundled: false
 extensions:
   bruno:

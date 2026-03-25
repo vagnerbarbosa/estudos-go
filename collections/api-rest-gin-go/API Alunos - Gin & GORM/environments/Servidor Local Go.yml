@@ -1,4 +1,4 @@
-name: Servidor Local
+name: Servidor Local Go
 variables:
   - name: baseUrl
     value: http://localhost:8080
